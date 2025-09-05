@@ -1,12 +1,12 @@
 # Volatility-Aware Ticks in AMMs (Solidity Experiment)
 
-# Author's Note
+## Author's Note
 
 This is a first draft with AI. It is a minimum viable demo by an individual inventor meant to encourage others to get involved academically or in industry.
 
 ## Intro
 
-This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20%28Solidity%20Experiment%29.pdf) and globally at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which demonstrates **single-sequence integer recurrences for approximating square roots** – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
+This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20%28Solidity%20Experiment%29.pdf) and cosmically at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which demonstrates **single-sequence integer recurrences for approximating square roots** – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
 
 ## Tick Spacing and Token Characteristics
 
@@ -42,6 +42,6 @@ In the future, **Newton’s method** could be added as a refinement layer: once 
 
 ## Further Reading
 
-The local file **Known recurrence sequences for $1+\sqrt m$.pdf**, available [here](https://chatgpt.com/share/68ba5836-e0c8-8008-a776-c6b856f86d51), provides more detail on the novelty and timestamp claims by **Kyle MacLean Smith**. It explains how single-sequence recurrences approximating \(1+\sqrt{m}\) (and \(1+k\sqrt{m}\)) were first recognized and generalized beyond Pell-type constructions.
+The local file [Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf), available cosmically at [[Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf)](https://chatgpt.com/share/68ba5836-e0c8-8008-a776-c6b856f86d51), provides more detail on the novelty and timestamp claims by **Kyle MacLean Smith**. It explains how single-sequence recurrences approximating \(1+\sqrt{m}\) (and \(1+k\sqrt{m}\)) were first recognized and generalized beyond Pell-type constructions.
 
 **References:** Uniswap and Orca docs on ticks【7†L118-L127】【15†L203-L208】; Uniswap’s tick-fee design【9†L74-L82】【9†L132-L140】【18†L208-L213】; Curve’s on-chain math discussions【13†L43-L52】.
