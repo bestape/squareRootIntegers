@@ -7,7 +7,7 @@ This is the second draft of a series that is using AI to explore and survey AMM 
 <img width="512" height="768" alt="image" src="https://github.com/user-attachments/assets/70c47d6b-e0ca-4038-a313-13e50bfbcba9" /><br />
 
 This draft is a fast-turnaround minimum viable demo by an individual inventor accelerating with AI no more proficient than early-release ChatGPT 5 and Nora.ai v0.4.4. This publication has gone through limited review. It is meant to encourage others to get involved with this technology academically or in industry, who can help create end-products. This publication is not intended to be an end-product academically or in industry.
-Newton-Raphson
+
 The first draft in this series can be found at [https://github.com/bestape/amm-test](https://github.com/bestape/amm-test).
 
 ## Intro
@@ -16,7 +16,7 @@ This README, with citation links locally at [Volatility-Aware Ticks in AMMs (Sol
 
 In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier). The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how a hybrid Newton-Raphson method could later be explored as a refinement step.
 
-<img width="512" height="768" alt="image" src="https://github.com/user-attachments/assets/5930b362-e42a-4be8-8d13-74336faa088c" /><br />
+<img width="512" height="768" alt="image" src="https://github.com/user-attachments/assets/f059bfdd-ee12-44f1-9fde-efdb53334885" /><br />
 
 The static local version is at [squareRootIntegers.sol](./squareRootIntegers.sol) and a cosmo live version is at [https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract](https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract)
 
