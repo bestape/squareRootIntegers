@@ -1,10 +1,12 @@
 # Volatility-Aware Ticks in AMMs (Solidity Experiment)
 
-# NOTE
+# Author's Note
 
 This is a first draft with AI. It is a minimum viable demo by an individual inventor meant to encourage others to get involved academically or in industry.
 
-This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](Volatility-Aware\ Ticks\ in\ AMMs\ \(Solidity\ Experiment\).pdf) and globally at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which demonstrates **single-sequence integer recurrences for approximating square roots** – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
+## Intro
+
+This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20(Solidity%20Experiment.pdf) and globally at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which demonstrates **single-sequence integer recurrences for approximating square roots** – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
 
 ## Tick Spacing and Token Characteristics
 
