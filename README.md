@@ -29,45 +29,50 @@ The core recurrence is:
 a(n) = 2a(n-1) + (m - 1)a(n-2)
 ```
 
-- For `m = 2`, this corresponds to the classical Pell sequence approximations to √2.  
-- For **general m > 1**, this same recurrence still generates rational approximations to `1 + √m`.  
+- For `m = 2`, the ratio `a(n)/a(n-1)` converges to `1 + √2`.  
+- More generally, the same recurrence converges to `1 + √m`.  
+- With scaling, it converges to `1 + k√m`.  
 
-This extends the Pell-type approach beyond √2 to arbitrary square roots, **using one and only one recurrence form**.
+The **“+1” term is essential**: it shifts the recurrence so that √m is captured inside a *single integer recurrence*. Without this shift, approximations require at least two interleaved sequences (as in Pell’s classical method).  
+
+Thus, this formula represents the **first known way to approximate arbitrary √m using a single integer recurrence sequence**.
 
 ---
 
 ## Novelty & Verification
 
-- In 2009, the OEIS sequence [A164544](https://oeis.org/A164544) was contributed by **Kyle MacLean Smith**, demonstrating the recurrence for √2.  
-- In 2019, Smith recognized and published that this same recurrence pattern **generalizes to all √m**, not just √2.  
-- Based on a review of existing literature and OEIS entries, there is **no prior record of a single integer recurrence systematically approximating √m for arbitrary m**.  
-- Thus, this contribution establishes the first explicit use of a **single integer recurrence** to approximate roots beyond √2.
+- The Pell recurrence was long known to approximate √2, but it required interleaved sequences or paired ratios.  
+- In 2009, OEIS sequence [A164544](https://oeis.org/A164544) (Kyle MacLean Smith) captured a special case approximating `1 + 2√2`.  
+- In 2019, Smith recognized that this structure **generalizes beyond √2 to all √m** — with `a(n)/a(n-1)` converging to `1 + √m` and more generally `1 + k√m`.  
+- Based on review of OEIS and Pell-related literature, there is no prior documentation of **a single-sequence integer recurrence systematically approximating √m for arbitrary m**.  
+
+This marks a novel contribution in recurrence-based number theory with practical blockchain applications.
 
 ---
 
 ## Applications in AMMs
 
-Automated Market Makers (AMMs) often require square root computations, e.g., in invariant calculations.  
+Automated Market Makers (AMMs) often require square root computations, e.g., in invariant and tick calculations.  
 
 This recurrence-based method offers:  
-- **Deterministic integer math** (avoids floating-point issues).  
-- **Gas efficiency** (no division or Newton iteration needed at first).  
-- **Progressive accuracy** (sequence converges with each step).  
+- **Deterministic integer math** (no floats).  
+- **Gas efficiency** (no division, just additions and multiplications).  
+- **Progressive accuracy** (each step refines the approximation).  
 
-**Practical strategy for AMMs:**  
-1. Use the integer recurrence for an efficient *first approximation*.  
-2. Apply **Newton–Raphson refinement** only if higher precision is required.  
+**Practical AMM strategy:**  
+1. Use the recurrence as a fast, gas-cheap approximation of `√m`.  
+2. Apply **Newton–Raphson refinement** if higher precision is needed.  
 
-This hybrid approach minimizes gas while maintaining mathematical rigor.
+This hybrid approach balances speed and accuracy while minimizing gas.
 
 ---
 
 ## Roadmap
 
-- [ ] Extend contract for configurable `m` values.  
-- [ ] Implement Newton–Raphson fallback for high-precision finalization.  
-- [ ] Explore integration with Uniswap v3-style tick math.  
-- [ ] Benchmark gas efficiency vs. existing sqrt implementations.  
+- [ ] Extend contract for configurable `m` and `k`.  
+- [ ] Benchmark recurrence-only vs Newton-enhanced hybrid.  
+- [ ] Explore AMM tick integration (Uniswap v3 and beyond).  
+- [ ] Compare gas savings against current sqrt libraries.  
 
 ---
 
@@ -75,6 +80,6 @@ This hybrid approach minimizes gas while maintaining mathematical rigor.
 
 If using this work, please cite as:
 
-> Kyle MacLean Smith (2019). *Integer Recurrence Approximation of 1 + √m via Single Linear Recurrence.* Extended from [OEIS A164544](https://oeis.org/A164544). First generalization of Pell-type recurrences beyond √2 into a single, universal form.
+> Kyle MacLean Smith (2019). *Single Integer Recurrence Approximation of 1 + √m.* Extended from [OEIS A164544](https://oeis.org/A164544). First generalization of Pell-type recurrences beyond √2 into a single universal recurrence.
 
 ---
