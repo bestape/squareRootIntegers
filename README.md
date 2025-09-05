@@ -132,6 +132,8 @@ In the future, the **Newton-Raphson method** could be added as a refinement laye
 
 The local file [Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf), available cosmically at [[Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf)](https://chatgpt.com/share/68ba5836-e0c8-8008-a776-c6b856f86d51), provides more detail on the novelty and timestamp claims by **Kyle MacLean Smith**. It explains how single-sequence recurrences approximating \(1 + sqrt{m}\) (and \(1 + k sqrt{m}\)) were first recognized and generalized beyond Pell-type constructions.
 
+**Base Scale Calculus** becoming a mathpunk tradition: [https://x.com/bestape/status/1960190121631776985](https://x.com/bestape/status/1960190121631776985) 
+
 **References:** Uniswap and Orca docs on ticks; Uniswap’s tick-fee design; Curve’s on-chain math discussion.
 
 [<img width="699" height="1280" alt="image" src="https://github.com/user-attachments/assets/c6d6db3c-ddef-48e5-9a34-da6157a6c4df" />](https://x.com/bestape/status/1963995595309289662)
