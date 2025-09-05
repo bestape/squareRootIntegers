@@ -2,7 +2,7 @@
 
 ## Preamble
 
-This is the second draft of a series that is using AI to explore and survey AMM efficiencies using "Base Scale Calculus" number theory philosophy, namely the "Square Root Integers" officially published in the Online Encyclopedia of Integer Sequences ("OEIS") at [https://oeis.org/search?q=kyle+maclean+smith&language=english&go=Search](https://oeis.org/search?q=kyle+maclean+smith&language=english&go=Search) and comprehensively listed on [https://github.com/bestape#oeis-contributions](https://github.com/bestape#oeis-contributions), including the "Mold & Cast Strings" editor notes here [https://oeis.org/history?seq=A330399&start=10](https://oeis.org/history?seq=A330399&start=10).
+This is the second draft of a series that is using AI to explore and survey AMM efficiencies using "Base Scale Calculus" number theory philosophy, namely the "Square Root Integers" officially published in the Online Encyclopedia of Integer Sequences ("OEIS") at [https://oeis.org/search?q=kyle+maclean+smith&language=english&go=Search](https://oeis.org/search?q=kyle+maclean+smith&language=english&go=Search) and comprehensively listed on [https://github.com/bestape#oeis-contributions](https://github.com/bestape#oeis-contributions), including the "Mold & Cast Strings" editor notes hidden within the pyramorphix sequence's history: [https://oeis.org/history?seq=A330399&start=10](https://oeis.org/history?seq=A330399&start=10).
 
 <img width="512" height="768" alt="image" src="https://github.com/user-attachments/assets/67863c01-8575-4736-a28c-1e57a69c5ba6" /><br />
 
