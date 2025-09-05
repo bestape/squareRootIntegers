@@ -6,7 +6,11 @@ This is a first draft with AI. It is a minimum viable demo by an individual inve
 
 ## Intro
 
-This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20%28Solidity%20Experiment%29.pdf) and cosmically at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which demonstrates **single-sequence integer recurrences for approximating square roots** – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
+This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20%28Solidity%20Experiment%29.pdf) and cosmically at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which demonstrates **single-sequence integer recurrences for approximating square roots** – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools.
+
+In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
+
+Here is a live version of the flattened solidity file: [https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract](https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract)
 
 <img width="1594" height="600" alt="image" src="https://github.com/user-attachments/assets/f5d57dbf-b302-495b-9e40-d8ee99cd7cfa" />
 
@@ -27,10 +31,10 @@ These principles align with Uniswap’s design: tick spacing is tied to fee tier
 
 ## Single-Sequence Square Root Approximations
 
-The key novelty here is the use of a **single linear recurrence** of integers to approximate values of the form \(1 + k\sqrt{m}\). This differs from classical Pell / Pell–Lucas methods, which require *two* interlinked sequences (numerator/denominator). By contrast, our approach uses just one sequence, making it simpler to implement in Solidity and cheaper on gas.
+The key novelty here is the use of a **single linear recurrence** of integers to approximate values of the form \(1 + k sqrt{m}\). This differs from classical Pell / Pell–Lucas methods, which require *two* interlinked sequences (numerator/denominator). By contrast, our approach uses just one sequence, making it simpler to implement in Solidity and cheaper on gas.
 
-- *Example:* \(a(n) = 2a(n-1) + (m-1)a(n-2)\) has the property that \(a(n)/a(n-1) \to 1 + \sqrt{m}\).  
-- More generally, variants like \(a(n) = 2a(n-1) + (k^2 m - 1)a(n-2)\) converge to \(1 + k\sqrt{m}\).  
+- *Example:* \(a(n) = 2a(n-1) + (m-1)a(n-2)\) has the property that \(a(n)/a(n-1) \to 1 + sqrt{m}\).  
+- More generally, variants like \(a(n) = 2a(n-1) + (k^2 m - 1)a(n-2)\) converge to \(1 + k sqrt{m}\).  
 
 This allows a Solidity contract to generate rational approximations to square roots — which in turn can be used to define tick multipliers for AMMs.
 
