@@ -8,6 +8,12 @@ This is a first draft with AI. It is a minimum viable demo by an individual inve
 
 This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20%28Solidity%20Experiment%29.pdf) and cosmically at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which demonstrates **single-sequence integer recurrences for approximating square roots** – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
 
+<img width="1594" height="600" alt="image" src="https://github.com/user-attachments/assets/f5d57dbf-b302-495b-9e40-d8ee99cd7cfa" />
+
+<img width="1203" height="859" alt="image" src="https://github.com/user-attachments/assets/95f564f0-5b4c-44b1-b3a4-4520d769e7b1" />
+
+<img width="787" height="822" alt="image" src="https://github.com/user-attachments/assets/ca35dd8f-192b-4843-849e-b1323db370e8" />
+
 ## Tick Spacing and Token Characteristics
 
 AMMs can **tune tick granularity** to match token volatility and liquidity.  Each tick step corresponds to a price ratio (Uniswap uses \(p(i)=1.0001^i\))【9†L38-L45】.  Narrow tick spacing (small percentage steps) boosts precision, while wider spacing reduces the number of steps crossed for large price moves.  General guidelines are: 
