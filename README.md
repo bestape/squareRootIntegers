@@ -10,7 +10,7 @@ This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solid
 
 In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s method could later be explored as a refinement step.
 
-Here is a live version of the flattened solidity file: [https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract](https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract)
+The static local version is at [squareRootIntegers.sol](./squareRootIntegers.sol) and a cosmo live version is at [https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract](https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract)
 
 <img width="1594" height="600" alt="image" src="https://github.com/user-attachments/assets/f5d57dbf-b302-495b-9e40-d8ee99cd7cfa" />
 
@@ -46,12 +46,12 @@ The key point is that our implementation handles this with **only one integer se
 
 ## Implications for AMM Design
 
-In summary, our Solidity experiment demonstrates that *adaptive tick spacing* and *on-chain recurrence-based math* can be combined in AMM technology.  AMMs could allow tick size to vary by pool (or even adjust dynamically) based on token volatility or liquidity, beyond the fixed 1.0001 step.  The recurrence-based approach gives deterministic integer-only approximations, which are gas-efficient.  
+In summary, our Solidity experiment demonstrates that *adaptive tick spacing* and *on-chain recurrence-based math* can be combined in AMM technology.  AMMs could allow tick size to vary by pool (or even adjust dynamically) based on token volatility or liquidity, beyond the fixed 1.0001 step. The recurrence-based approach gives deterministic integer-only approximations, which are gas-efficient.  
 
-In the future, **Newton’s method** could be added as a refinement layer: once the recurrence provides a good approximation of \(\sqrt{m}\), Newton iterations could converge even faster to high precision.  This hybrid approach (recurrence baseline + Newton refinement) may be the optimal trade-off between precision and gas.
+In the future, **Newton’s method** could be added as a refinement layer: once the recurrence provides a good approximation of \(sqrt{m}\), Newton iterations could converge even faster to high precision.  This hybrid approach (recurrence baseline + Newton refinement) may be the optimal trade-off between precision and gas.
 
 ## Further Reading
 
-The local file [Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf), available cosmically at [[Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf)](https://chatgpt.com/share/68ba5836-e0c8-8008-a776-c6b856f86d51), provides more detail on the novelty and timestamp claims by **Kyle MacLean Smith**. It explains how single-sequence recurrences approximating \(1+\sqrt{m}\) (and \(1+k\sqrt{m}\)) were first recognized and generalized beyond Pell-type constructions.
+The local file [Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf), available cosmically at [[Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf)](https://chatgpt.com/share/68ba5836-e0c8-8008-a776-c6b856f86d51), provides more detail on the novelty and timestamp claims by **Kyle MacLean Smith**. It explains how single-sequence recurrences approximating \(1 + sqrt{m}\) (and \(1 + k sqrt{m}\)) were first recognized and generalized beyond Pell-type constructions.
 
 **References:** Uniswap and Orca docs on ticks【7†L118-L127】【15†L203-L208】; Uniswap’s tick-fee design【9†L74-L82】【9†L132-L140】【18†L208-L213】; Curve’s on-chain math discussions【13†L43-L52】.
