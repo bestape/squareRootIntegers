@@ -1,6 +1,10 @@
 # Volatility-Aware Ticks in AMMs (Solidity Experiment)
 
-This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment)](Volatility-Aware Ticks in AMMs (Solidity Experiment)) and globally at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which uses Newton’s method to compute fractional exponents on-chain – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to compute such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s single-sequence iterations (unlike Pell-Lucas methods) make these calculations practical.
+# NOTE
+
+This is a first draft with AI. It is a minimum viable demo by an individual inventor meant to encourage others to get involved academically or in industry.
+
+This README, with active links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](Volatility-Aware\ Ticks\ in\ AMMs\ \(Solidity\ Experiment\).pdf) and globally at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype – which uses Newton’s method to compute fractional exponents on-chain – could inform automated market maker (AMM) design, especially in concentrated-liquidity pools. In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier)【7†L118-L127】【9†L38-L45】.  The contract’s ability to compute such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how Newton’s single-sequence iterations (unlike Pell-Lucas methods) make these calculations practical.
 
 ## Tick Spacing and Token Characteristics
 
