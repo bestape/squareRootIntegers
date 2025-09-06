@@ -1,4 +1,4 @@
-# Volatility-Aware Ticks in AMMs (Solidity Experiment)
+# Square Root Integers for AMM Quantascale (Solidity Experiment)
 
 ## Preamble
 
@@ -12,7 +12,7 @@ The first draft in this series can be found at [https://github.com/bestape/amm-t
 
 ## Intro
 
-This README, with citation links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20%28Solidity%20Experiment%29.pdf) and cosmically at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype (which demonstrates how the **single-sequence integer recurrences for approximating square roots** discovery on OEIS in 2019) could inform automated market maker ("AMM") design, especially in concentrated-liquidity pools.
+This README, with citation links locally at [Volatility-Aware Ticks in AMMs (Solidity Experiment).pdf](./Volatility-Aware%20Ticks%20in%20AMMs%20%28Solidity%20Experiment%29.pdf) and cosmically at [https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f](https://chatgpt.com/s/dr_68ba59016a54819190f1d62a7086ee8f), analyzes how our Solidity prototype — which demonstrates the first generalized **single-sequence integer recurrence approximation of square root "irrationality"** discovery on OEIS in 2019 — could inform automated market maker ("AMM") design, especially in concentrated-liquidity pools.
 
 In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier). The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how a hybrid Newton-Raphson method could later be explored as a refinement step.
 
@@ -122,6 +122,30 @@ To illustrate, consider approximating the base tick factor 1.0001. Our contract 
 
 The key point is that our implementation handles this with **only one integer sequence**, unlike Pell-based double-sequence constructions. This makes the Solidity implementation lightweight.
 
+## Quantascale Philosophy
+
+In today’s AMM design, the word **tick** is industry jargon. It marks a tiny step in price, often fixed by convention (e.g. 0.01%). Useful, but limited: ticks treat the market as if it were a staircase we build by governance vote.
+
+History shows us that sometimes finance glimpses something deeper before physics names it. In 1900, **Louis Bachelier** modeled stock prices as continuous random walks — five years *before* Einstein framed Brownian motion as physical proof of atoms. Finance saw the jitter first; physics gave it universal language later.
+
+AMMs may be in the same position today. If we only call these increments “ticks,” we stay at the level of industry shorthand. But if we see them instead as **quantascale**, we open the door to a richer understanding:
+
+* **Spacetime–Scale Trifecta:**
+
+  * *Space*: Liquidity across the price curve.
+  * *Time*: Volatility as random walk.
+  * *Scale*: The resolution at which on-chain math can express increments.
+
+* **Ticks as Brownian precursors:**
+  Ticks are today’s finance-first sighting, like Bachelier’s stock paths. They hint at an underlying structure — micro-motions within price space — that we haven’t yet fully theorized.
+
+* **Quantascale as philosophy:**
+  Quantascale treats increments not as arbitrary ladders but as **emergent recurrence grains** — the natural Brownian fabric of market space, captured by integer sequences like $1 + ksqrt{m}$.
+
+If AMM design takes terminology seriously, it could provide the same kind of conceptual leap finance once gave physics. **Ticks are what we see; quantascale is what we might learn.**
+
+<img width="1024" height="1536" alt="17571192188639117037174602257593" src="https://github.com/user-attachments/assets/912a8dae-6493-4e40-be8f-2282bdde1d13" />
+
 ## Implications for AMM Design
 
 In summary, our Solidity experiment demonstrates that *adaptive tick spacing* and *on-chain recurrence-based math* can be combined in AMM technology. AMMs could allow tick size to vary by pool (or even adjust dynamically) based on token volatility or liquidity, beyond the fixed 1.0001 step. The recurrence-based approach gives deterministic integer-only approximations, which are gas-efficient.  
@@ -130,11 +154,19 @@ In the future, the **Newton-Raphson method** could be added as a refinement laye
 
 ## Further Reading
 
-The local file [Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf), available cosmically at [[Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf)](https://chatgpt.com/share/68ba5836-e0c8-8008-a776-c6b856f86d51), provides more detail on the novelty and timestamp claims by **Kyle MacLean Smith**. It explains how single-sequence recurrences approximating \(1 + sqrt{m}\) (and \(1 + k sqrt{m}\)) were first recognized and generalized beyond Pell-type constructions.
+- **OEIS Research** in the local file [Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf), available cosmically at [[Known recurrence sequences for $1+\sqrt{m}$.pdf](./Known%20recurrence%20sequences%20for%20%241%2B_sqrt%20m%24.pdf)](https://chatgpt.com/share/68ba5836-e0c8-8008-a776-c6b856f86d51), provides more detail on the novelty and timestamp claims by **Kyle MacLean Smith**. It explains how single-sequence recurrences approximating \(1 + sqrt{m}\) (and \(1 + k sqrt{m}\)) were first recognized and generalized beyond Pell-type constructions.
 
-**Base Scale Calculus** becoming a mathpunk tradition: [https://x.com/bestape/status/1960190121631776985](https://x.com/bestape/status/1960190121631776985) 
+- **Base Scale Tessellations** fixated on the legal engineering philosophy that Non-Fungible Tokens ("NFTs") should be the Domain Name System ("DNS") for Document Object Model ("DOM") iFrames called iNFTs: [https://ape.mirror.xyz/FjUVEcUrDmQISEmcVarGEDHt6mLK9VOjLbxXgFy4edE](https://ape.mirror.xyz/FjUVEcUrDmQISEmcVarGEDHt6mLK9VOjLbxXgFy4edE)
 
-**References:** Uniswap and Orca docs on ticks; Uniswap’s tick-fee design; Curve’s on-chain math discussion.
+Generally, we believe DOMs are as fundamental an innovation to modern jurisprudence as papyrus, pen or printer, respectively in chronology. DOMs are the runtime of markup and markup was made by a lawyer for lawyers as to electrify legalese languages and, therefore, enter the age of legal abundance with 99% deflated costs as we've enjoyed in transport since the Oregon Trail.
+
+![Screenshot_20250905_172631_Chrome](https://github.com/user-attachments/assets/258d43f2-9897-4fbb-b2f9-daa434e43595)
+
+![Screenshot_20250905_173040_Chrome](https://github.com/user-attachments/assets/0bcc87e8-6e8f-4db8-85f7-68beb084c8ae)
+
+- **Base Scale Calculus** becoming a mathpunk tradition: [https://x.com/bestape/status/1960190121631776985](https://x.com/bestape/status/1960190121631776985) 
+
+- **References:** Uniswap and Orca docs on ticks; Uniswap’s tick-fee design; Curve’s on-chain math discussion.
 
 [<img width="699" height="1280" alt="image" src="https://github.com/user-attachments/assets/c6d6db3c-ddef-48e5-9a34-da6157a6c4df" />](https://x.com/bestape/status/1963995595309289662)
 
