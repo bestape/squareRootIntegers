@@ -116,6 +116,18 @@ This pattern is inspired by the Fibonacci approximations of the Golden Ratio, wh
 
 ![approx gif](./Fibonacci_tiling_of_the_plane_and_approximation_to_Golden_Ratio.gif)
 
+## Greatest Common Divisor and Other Future Efficiencies
+
+This test is a simple flattened file that tests the simplest generalization of the square root integer sequences. Future explorations will want to look at the 4th Order approximations as well as other tricks to find the simplest square root integer sequences possible within Ethereum gas constraints.
+
+For instance, this appoximation of the copper ratio (see [Vera de Spinadel](https://en.wikipedia.org/wiki/Vera_W._de_Spinadel)'s [Metallic Mean Family](https://en.wikipedia.org/wiki/Metallic_mean)) is simplifiable by the GCD, as you can see at [https://www.wolframalpha.com/input?i=GCD%28885679945171481500057600%2F273690154635059441696768%29](https://www.wolframalpha.com/input?i=GCD%28885679945171481500057600%2F273690154635059441696768%29):
+
+<img width="755" height="468" alt="image" src="https://github.com/user-attachments/assets/4c2aeb8e-3d94-406f-bca5-c88dbad860c7" />
+
+<img width="577" height="420" alt="Screenshot from 2025-09-06 15-08-11" src="https://github.com/user-attachments/assets/757e0bbf-5c23-4b5b-9308-61f19eabab86" />
+
+<img width="392" height="696" alt="image" src="https://github.com/user-attachments/assets/e277cf85-0909-4cfe-9cf4-75546d84ba59" />
+
 ## Example: Approximating a 1.0001 Tick
 
 To illustrate, consider approximating the base tick factor 1.0001. Our contract can take an input like `(1, 10001, 2)` to generate the ratio \(a(n)/a(n-1)\) that converges near **1.0001**. This shows that even tiny multipliers can be encoded: by choosing the integer recurrence parameters appropriately, we can construct ticks at the granularity of 0.01% (or even smaller if desired).
