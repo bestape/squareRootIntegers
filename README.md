@@ -112,7 +112,7 @@ The key novelty here is the use of a **single linear recurrence** of integers to
 
 This allows a Solidity contract to generate rational approximations to square roots — which in turn can be used to define tick multipliers for AMMs.
 
-This pattern is inspired by the Fibonacci approximations of the Golden Ratio, which is also the approximation of sqrt{5}. From [https://en.wikipedia.org/wiki/Fibonacci_sequence#/media/File:Fibonacci_tiling_of_the_plane_and_approximation_to_Golden_Ratio.gif](https://en.wikipedia.org/wiki/Fibonacci_sequence#/media/File:Fibonacci_tiling_of_the_plane_and_approximation_to_Golden_Ratio.gif):
+This pattern is inspired by the Fibonacci approximations of the Golden Ratio, which is also the approximations of sqrt{5}. From [https://en.wikipedia.org/wiki/Fibonacci_sequence#/media/File:Fibonacci_tiling_of_the_plane_and_approximation_to_Golden_Ratio.gif](https://en.wikipedia.org/wiki/Fibonacci_sequence#/media/File:Fibonacci_tiling_of_the_plane_and_approximation_to_Golden_Ratio.gif):
 
 ![approx gif](./Fibonacci_tiling_of_the_plane_and_approximation_to_Golden_Ratio.gif)
 
@@ -158,13 +158,13 @@ In the future, the **Newton-Raphson method** could be added as a refinement laye
 
 - **Base Scale Tessellations** fixated on the legal engineering philosophy that Non-Fungible Tokens ("NFTs") should be the Domain Name System ("DNS") for Document Object Model ("DOM") iFrames called iNFTs: [https://ape.mirror.xyz/FjUVEcUrDmQISEmcVarGEDHt6mLK9VOjLbxXgFy4edE](https://ape.mirror.xyz/FjUVEcUrDmQISEmcVarGEDHt6mLK9VOjLbxXgFy4edE)
 
-Generally, we believe DOMs are as fundamental an innovation to modern jurisprudence as papyrus, pen or printer, respectively in chronology. DOMs are the runtime of markup and markup was made by a lawyer for lawyers as to electrify legalese languages and, therefore, enter the age of legal abundance with 99% deflated costs as we've enjoyed in transport since the Oregon Trail.
+Generally, we believe DOMs are as fundamental an innovation to modern jurisprudence as papyrus, pen or printer, respectively in chronology. DOMs are the runtime of markup and markup was **made by a lawyer for lawyers** as to electrify legalese languages and, therefore, enter the age of legal abundance with 99% deflated costs as we've enjoyed in transport since the Oregon Trail.
 
 ![Screenshot_20250905_172631_Chrome](https://github.com/user-attachments/assets/258d43f2-9897-4fbb-b2f9-daa434e43595)
 
 ![Screenshot_20250905_173040_Chrome](https://github.com/user-attachments/assets/0bcc87e8-6e8f-4db8-85f7-68beb084c8ae)
 
-- **Base Scale Calculus** becoming a mathpunk tradition: [https://x.com/bestape/status/1960190121631776985](https://x.com/bestape/status/1960190121631776985) 
+- **Base Scale Calculus** becoming a #mathpunk tradition: [https://x.com/bestape/status/1960190121631776985](https://x.com/bestape/status/1960190121631776985) 
 
 - **References:** Uniswap and Orca docs on ticks; Uniswap’s tick-fee design; Curve’s on-chain math discussion.
 
