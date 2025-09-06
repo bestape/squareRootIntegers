@@ -158,11 +158,15 @@ In the future, the **Newton-Raphson method** could be added as a refinement laye
 
 - **Base Scale Tessellations** fixated on the legal engineering philosophy that Non-Fungible Tokens ("NFTs") should be the Domain Name System ("DNS") for Document Object Model ("DOM") iFrames called iNFTs: [https://ape.mirror.xyz/FjUVEcUrDmQISEmcVarGEDHt6mLK9VOjLbxXgFy4edE](https://ape.mirror.xyz/FjUVEcUrDmQISEmcVarGEDHt6mLK9VOjLbxXgFy4edE)
 
-Generally, we believe DOMs are as fundamental an innovation to modern jurisprudence as papyrus, pen or printer, respectively in chronology. DOMs are the runtime of markup and markup was **made by a lawyer for lawyers** as to electrify legalese languages and, therefore, enter the age of legal abundance with 99% deflated costs as we've enjoyed in transport since the Oregon Trail.
-
 ![Screenshot_20250905_172631_Chrome](https://github.com/user-attachments/assets/258d43f2-9897-4fbb-b2f9-daa434e43595)
 
 ![Screenshot_20250905_173040_Chrome](https://github.com/user-attachments/assets/0bcc87e8-6e8f-4db8-85f7-68beb084c8ae)
+
+Generally, we believe DOMs are as fundamental an innovation to modern jurisprudence as papyrus, pen or printer, respectively in chronology. DOMs are the runtime of markup and markup was **made by a lawyer for lawyers** as to electrify legalese languages and, therefore, enter the age of legal abundance with 99% deflated costs as we've enjoyed in transport since the Oregon Trail.
+
+<img width="1067" height="1600" alt="transportLegalAnalogySmall" src="https://github.com/user-attachments/assets/75610bda-d01e-4189-b3ff-074da7a3b966" />
+
+<img width="1024" height="1536" alt="oregonMoloch" src="https://github.com/user-attachments/assets/21bf8dbc-7ebe-4be3-b963-11c5c958b962" /><br />
 
 - **Base Scale Calculus** becoming a #mathpunk tradition: [https://x.com/bestape/status/1960190121631776985](https://x.com/bestape/status/1960190121631776985) 
 
