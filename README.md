@@ -132,7 +132,21 @@ For instance, this appoximation of the copper ratio (see [Vera de Spinadel](http
 
 To illustrate, consider approximating the base tick factor 1.0001. Our contract can take an input like `(1, 10001, 2)` to generate the ratio \(a(n)/a(n-1)\) that converges near **1.0001**. This shows that even tiny multipliers can be encoded: by choosing the integer recurrence parameters appropriately, we can construct ticks at the granularity of 0.01% (or even smaller if desired).
 
+<img width="753" height="470" alt="image" src="https://github.com/user-attachments/assets/06091338-ec0c-49c2-b0e8-4190baaf848d" /><br />
+
+- **Future improvement note**: It seems the `result_str` is missing `.00` and printing `.99` instead. The ChatGPT 5 AI did logic to remove the trailing zeros, and that might be causing this error.
+
 The key point is that our implementation handles this with **only one integer sequence**, unlike Pell-based double-sequence constructions. This makes the Solidity implementation lightweight.
+
+<img width="588" height="458" alt="image" src="https://github.com/user-attachments/assets/5b1e87c2-478f-4e87-8e5e-05592c2ef480" />
+
+<img width="570" height="364" alt="image" src="https://github.com/user-attachments/assets/2da7e1b6-7b41-4936-8fdb-1f3e170f09aa" />
+
+<img width="570" height="702" alt="image" src="https://github.com/user-attachments/assets/726278dc-f282-4b60-ab8b-2f181ab40daa" /><br />
+
+At level 2 and only up to `n = 2`, which is the highest overflow level this initial ChatGPT 5 script can do, the  `10202 / 101` integers are already down to a 0.0048523...% error.
+
+<img width="1057" height="746" alt="image" src="https://github.com/user-attachments/assets/a6709609-10bc-4744-b800-a248d2eef084" />
 
 ## Quantascale Philosophy
 
