@@ -4,7 +4,7 @@
 
 This is the second draft of a series that is using AI to explore and survey AMM efficiencies using "Base Scale Calculus" number theory philosophy, namely the "Square Root Integers" officially published in the Online Encyclopedia of Integer Sequences ("OEIS") at [https://oeis.org/search?q=kyle+maclean+smith&language=english&go=Search](https://oeis.org/search?q=kyle+maclean+smith&language=english&go=Search) and comprehensively listed on [https://github.com/bestape#oeis-contributions](https://github.com/bestape#oeis-contributions), including the "Mold & Cast Strings" editor notes hidden within the pyramorphix sequence's history: [https://oeis.org/history?seq=A330399&start=10](https://oeis.org/history?seq=A330399&start=10).
 
-<img width="512" height="768" alt="image" src="https://github.com/user-attachments/assets/67863c01-8575-4736-a28c-1e57a69c5ba6" /><br />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/67863c01-8575-4736-a28c-1e57a69c5ba6" /><br />
 
 This draft is a fast-turnaround minimum viable demo by an individual inventor accelerating with AI no more proficient than early-release ChatGPT 5 and Nora.ai v0.4.4. This publication has gone through limited review. It is meant to encourage others to get involved with this technology academically or in industry, who can help create end-products. This publication is not intended to be an end-product academically or in industry.
 
@@ -16,7 +16,7 @@ This README, with citation links locally at [Volatility-Aware Ticks in AMMs (Sol
 
 In Uniswap-style AMMs, each “tick” is a fixed price step: by convention 1 tick = 0.01% price change (a 1.0001× multiplier). The contract’s ability to approximate such fine-grained exponents (for example, using inputs like `(1, 10001, 2)` to approximate the factor 1.0001) means we can generate small price increments on-chain. Below we discuss how tick spacing might vary by token type, and how a hybrid Newton-Raphson method could later be explored as a refinement step.
 
-<img width="512" height="768" alt="image" src="https://github.com/user-attachments/assets/f059bfdd-ee12-44f1-9fde-efdb53334885" /><br />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/f059bfdd-ee12-44f1-9fde-efdb53334885" /><br />
 
 The static local version is at [squareRootIntegers.sol](./squareRootIntegers.sol) and a cosmo live version is at [https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract](https://arbitrum.blockscout.com/address/0x4dE228A1dF2735250Dc193f1B5484A3E54d087a4?tab=read_write_contract)
 
@@ -147,6 +147,14 @@ The key point is that our implementation handles this with **only one integer se
 At level 2 and only up to `n = 2`, which is the highest overflow level this initial ChatGPT 5 script can do, the  `10202 / 101` integers are already down to a **0.0048523...%** error.
 
 <img width="1057" height="746" alt="image" src="https://github.com/user-attachments/assets/a6709609-10bc-4744-b800-a248d2eef084" />
+
+<img width="826" height="224" alt="image" src="https://github.com/user-attachments/assets/ca42bb52-41dd-4934-86df-56bbc09d2ae8" />
+
+An AI review of some the math behind 10202/101 and sqrt(1.0001) is locally at [Uniswap Tick Spacing and √(1.0001).pdf](./Uniswap%20Tick%20Spacing%20and%20√(1.0001).pdf) and cosmically at [https://chatgpt.com/s/dr_68bcc7c863788191a70ec1f76c3807c2](https://chatgpt.com/s/dr_68bcc7c863788191a70ec1f76c3807c2). A deep dive into the Bürgi "Progress Tables" 1.0001 connection is locally at [Tick spacing in Uniswap v3.pdf](./Tick%20spacing%20in%20Uniswap%20v3.pdf) and cosmically at [https://chatgpt.com/s/dr_68bccc3ef7448191a729b13d96e8ba92](https://chatgpt.com/s/dr_68bccc3ef7448191a729b13d96e8ba92).
+
+<img width="1024" height="1536" alt="Adequality Rules the Markets" src="https://github.com/user-attachments/assets/43473197-c2ad-4aa2-8f38-bdcafbe62213" />
+
+<img width="1024" height="1536" alt="Unicorn and Plow in Golden Field" src="https://github.com/user-attachments/assets/bed2be25-d388-4fdb-b30d-b0e924b3b265" />
 
 ## Quantascale Philosophy
 
